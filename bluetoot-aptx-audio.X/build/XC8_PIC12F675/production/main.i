@@ -1191,6 +1191,14 @@ void main()
 
 
     InitApp();
+    GP2 = 1;
+    GP1 = 1;
+
+    GP5 = 1;
+    GP4 = 1;
+
+    _delay((unsigned long)((5000)*(4000000/4000.0)));
+    GP1 = 0;
 
     unsigned int ADC_value = 0;
 
@@ -1201,33 +1209,23 @@ void main()
 
 
     ADC_value = GetADCValue();
-
-        if (ADC_value < 10)
+# 76 "main.c"
+          if (ADC_value > 210 && ADC_value < 240)
             {
-            GP2 = 0;
-            _delay((unsigned long)((1)*(4000000/4000.0)));
-            }
-   else if (ADC_value > 110 && ADC_value < 130)
-            {
-            GP1 = 0;
-            _delay((unsigned long)((1)*(4000000/4000.0)));
-            }
-   else if (ADC_value > 210 && ADC_value < 240)
-            {
-            GP4 = 0;
+            GP5 = 0;
             _delay((unsigned long)((1)*(4000000/4000.0)));
             }
    else if (ADC_value > 370 && ADC_value < 400)
             {
-            GP5 = 0;
+            GP4 = 0;
             _delay((unsigned long)((1)*(4000000/4000.0)));
             }
    else
    {
     GP2 = 1;
-    GP1 = 1;
-    GP4 = 1;
+
     GP5 = 1;
+    GP4 = 1;
     _delay((unsigned long)((1)*(4000000/4000.0)));
     }
     }

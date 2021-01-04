@@ -17,10 +17,10 @@
 
 /******************************************************************************/
 /* User Global Variable Declaration                                           */
-#define VOL_P GP1
+//#define VOL_P GP1
 #define VOL_M GP2
-#define PLAY GP4
-#define NEXT GP5
+#define NEXT GP4
+#define PLAY GP5
 #define _XTAL_FREQ 4000000  // 4MHZ internal crystal
 
 /******************************************************************************/
@@ -44,6 +44,14 @@ void main()
 
     /* Initialize I/O and Peripherals for application */
     InitApp();
+    VOL_M = 1;
+    GP1 = 1; // BT module is off
+    //VOL_P = 1;
+    PLAY = 1;
+    NEXT = 1;
+    
+    __delay_ms(5000); // delay before powering csr8745
+    GP1 = 0; // BT module is on
     
     unsigned int ADC_value = 0;
 
@@ -55,7 +63,7 @@ void main()
         
     ADC_value = GetADCValue();
 
-        if (ADC_value < 10) 
+    /*    if (ADC_value < 10) 
             {
             VOL_M = 0;
             __delay_ms(1);
@@ -65,7 +73,7 @@ void main()
             VOL_P = 0; 
             __delay_ms(1);
             }
-   else if (ADC_value > 210 && ADC_value < 240) 
+   else */if (ADC_value > 210 && ADC_value < 240) 
             {
             PLAY = 0; 
             __delay_ms(1);
@@ -78,7 +86,7 @@ void main()
    else
    {
     VOL_M = 1;
-    VOL_P = 1;
+    //VOL_P = 1;
     PLAY = 1;
     NEXT = 1;
     __delay_ms(1);   

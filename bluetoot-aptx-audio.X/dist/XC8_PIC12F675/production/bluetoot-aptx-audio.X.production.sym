@@ -3,12 +3,12 @@ _GP2 2A 0 ABS 0
 _GP4 2C 0 ABS 0
 _GP5 2D 0 ABS 0
 __S0 3FF 0 ABS 0
-__S1 27 0 ABS 0
+__S1 29 0 ABS 0
 __S2 0 0 ABS 0
 __S3 0 0 ABS 0
 __Hintentry 0 0 CODE 0
 __Lintentry 0 0 CODE 0
-_main 3A2 0 CODE 0
+_main 3AE 0 CODE 0
 ___sp 0 0 STACK 2
 btemp 5E 0 ABS 0
 start 0 0 CODE 0
@@ -52,7 +52,7 @@ __Linit 0 0 CODE 0
 __end_of_main 3FD 0 CODE 0
 __Htext 7FE 0 ABS 0
 __Ltext 7FE 0 ABS 0
-main@ADC_value 25 0 BANK0 1
+main@ADC_value 27 0 BANK0 1
 end_of_initialization 3FD 0 CODE 0
 ___stacklo 0 0 ABS 0
 __Hstrings 7FE 0 ABS 0
@@ -64,18 +64,18 @@ __Lbank1 7FE 0 BANK1 1
 ___latbits 0 0 ABS 0
 __Hpowerup 0 0 CODE 0
 __Lpowerup 0 0 CODE 0
-__ptext1 375 0 CODE 0
-__ptext2 382 0 CODE 0
+__ptext1 381 0 CODE 0
+__ptext2 38E 0 CODE 0
 __Hclrtext 7FE 0 ABS 0
 __Lclrtext 7FE 0 ABS 0
-__end_of_InitApp 382 0 CODE 0
+__end_of_InitApp 38E 0 CODE 0
 __end_of__initialization 3FD 0 CODE 0
-__end_of_GetADCValue 3A2 0 CODE 0
+__end_of_GetADCValue 3AE 0 CODE 0
 __Hstack 0 0 STACK 2
 __Lstack 0 0 STACK 2
 __Hspace_0 7FE 0 ABS 0
 __Lspace_0 0 0 ABS 0
-_InitApp 375 0 CODE 0
+_InitApp 381 0 CODE 0
 __Hspace_1 7FE 0 ABS 0
 __Lspace_1 0 0 ABS 0
 __Hspace_2 0 0 ABS 0
@@ -106,58 +106,59 @@ __pcstackCOMMON 0 0 COMMON 1
 start_initialization 3FD 0 CODE 0
 __Hmaintext 7FE 0 ABS 0
 __Lmaintext 7FE 0 ABS 0
-__pmaintext 3A2 0 CODE 0
+__pmaintext 3AE 0 CODE 0
 ?_GetADCValue 20 0 BANK0 1
 __initialization 3FD 0 CODE 0
-_GetADCValue 382 0 CODE 0
+_GetADCValue 38E 0 CODE 0
 %segments
 reset_vec 0 1 CODE 0 0
 cinit 7FA 7FD CODE 7FA 0
-cstackBANK0 20 26 BANK0 20 1
-maintext 744 7F9 CODE 744 0
-text2 704 743 CODE 704 0
-text1 6EA 703 CODE 6EA 0
+cstackBANK0 20 28 BANK0 20 1
+maintext 75C 7F9 CODE 75C 0
+text2 71C 75B CODE 71C 0
+text1 702 71B CODE 702 0
 %locals
 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-C:\Users\Al\AppData\Local\Temp\sj3ox.s
+C:\Users\Al\AppData\Local\Temp\sn1sx.s
 388 3FD 0 CODE 0
 391 3FD 0 CODE 0
 397 3FD 0 CODE 0
 399 3FD 0 CODE 0
 400 3FE 0 CODE 0
 main.c
-40 3A2 0 CODE 0
-46 3A2 0 CODE 0
-48 3A3 0 CODE 0
-56 3A3 0 CODE 0
-58 3A9 0 CODE 0
-60 3B2 0 CODE 0
-61 3B3 0 CODE 0
-62 3BA 0 CODE 0
-63 3BB 0 CODE 0
-65 3CD 0 CODE 0
-68 3CF 0 CODE 0
-70 3E1 0 CODE 0
-73 3E3 0 CODE 0
-75 3F5 0 CODE 0
-78 3F7 0 CODE 0
-80 3F7 0 CODE 0
-81 3F8 0 CODE 0
-82 3F9 0 CODE 0
-83 3FA 0 CODE 0
+40 3AE 0 CODE 0
+46 3AE 0 CODE 0
+47 3AF 0 CODE 0
+48 3B1 0 CODE 0
+50 3B2 0 CODE 0
+51 3B3 0 CODE 0
+53 3B4 0 CODE 0
+54 3C1 0 CODE 0
+56 3C3 0 CODE 0
+64 3C3 0 CODE 0
+76 3C9 0 CODE 0
+78 3DB 0 CODE 0
+79 3DC 0 CODE 0
+80 3E3 0 CODE 0
+81 3E4 0 CODE 0
+83 3F6 0 CODE 0
+86 3F8 0 CODE 0
+88 3F8 0 CODE 0
+90 3F9 0 CODE 0
+91 3FA 0 CODE 0
 user.c
-23 375 0 CODE 0
-27 375 0 CODE 0
-31 378 0 CODE 0
-32 37A 0 CODE 0
-33 37D 0 CODE 0
-34 37F 0 CODE 0
-39 381 0 CODE 0
-44 382 0 CODE 0
-49 382 0 CODE 0
-51 38C 0 CODE 0
-53 38E 0 CODE 0
-54 38F 0 CODE 0
-53 396 0 CODE 0
-55 39B 0 CODE 0
-56 3A1 0 CODE 0
+23 381 0 CODE 0
+27 381 0 CODE 0
+31 384 0 CODE 0
+32 386 0 CODE 0
+33 389 0 CODE 0
+34 38B 0 CODE 0
+39 38D 0 CODE 0
+44 38E 0 CODE 0
+49 38E 0 CODE 0
+51 398 0 CODE 0
+53 39A 0 CODE 0
+54 39B 0 CODE 0
+53 3A2 0 CODE 0
+55 3A7 0 CODE 0
+56 3AD 0 CODE 0

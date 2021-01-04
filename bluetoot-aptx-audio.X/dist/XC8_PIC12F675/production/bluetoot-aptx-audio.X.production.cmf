@@ -11,15 +11,15 @@
 # All addresses and the length are given in unqualified hexadecimal
 # in delta units.  Any other numeric values are decimal.
 %PSECTS
+$C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+end_init CODE 0 0 0 1 2
+config CONFIG 4 2007 2007 1 2
 $dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 cinit CODE 0 3FD 3FD 2 2
-text1 CODE 0 375 375 D 2
-text2 CODE 0 382 382 20 2
-maintext CODE 0 3A2 3A2 5B 2
-cstackBANK0 BANK0 1 20 20 7 1
-config CONFIG 4 2007 2007 1 2
-$C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-end_init CODE 0 0 0 1 2
+text1 CODE 0 381 381 D 2
+text2 CODE 0 38E 38E 20 2
+maintext CODE 0 3AE 3AE 4F 2
+cstackBANK0 BANK0 1 20 20 9 1
 config CONFIG 4 2007 2007 1 2
 # %UNUSED Section
 # This section enumerates the unused ranges of each CLASS. Each entry
@@ -27,18 +27,18 @@ config CONFIG 4 2007 2007 1 2
 #    <class name> <range> <delta>
 # Addresses given in the range are in hexadecimal and units of delta.
 %UNUSED
-RAM 27-5D 1
-BANK0 27-5D 1
-CONST 1-374 2
-ENTRY 1-374 2
+RAM 29-5D 1
+BANK0 29-5D 1
+CONST 1-380 2
+ENTRY 1-380 2
 IDLOC 2000-2003 2
-STACK 27-5D 1
-CODE 1-374 2
+STACK 29-5D 1
+CODE 1-380 2
 SFR0 0-1F 1
 SFR1 80-DD 1
 EEDATA 2100-217F 2
-STRCODE 1-374 2
-STRING 1-374 2
+STRCODE 1-380 2
+STRING 1-380 2
 # %LINETAB Section
 # This section enumerates the file/line to address mappings.
 # The beginning of the section is indicated by %LINETAB.
@@ -53,45 +53,46 @@ STRING 1-374 2
 # All other numeric values are in decimal.
 %LINETAB
 $dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-3FD cinit CODE >388:C:\Users\Al\AppData\Local\Temp\sj3ox.s
-3FD cinit CODE >391:C:\Users\Al\AppData\Local\Temp\sj3ox.s
-3FD cinit CODE >397:C:\Users\Al\AppData\Local\Temp\sj3ox.s
-3FD cinit CODE >399:C:\Users\Al\AppData\Local\Temp\sj3ox.s
-3FE cinit CODE >400:C:\Users\Al\AppData\Local\Temp\sj3ox.s
-382 text2 CODE >44:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-382 text2 CODE >49:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-38C text2 CODE >51:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-38E text2 CODE >53:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-38F text2 CODE >54:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-396 text2 CODE >53:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-39B text2 CODE >55:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-3A1 text2 CODE >56:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-375 text1 CODE >23:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-375 text1 CODE >27:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-378 text1 CODE >31:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-37A text1 CODE >32:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-37D text1 CODE >33:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-37F text1 CODE >34:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-381 text1 CODE >39:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
-3A2 maintext CODE >40:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3A2 maintext CODE >46:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3A3 maintext CODE >48:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3A3 maintext CODE >56:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3A9 maintext CODE >58:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3B2 maintext CODE >60:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3B3 maintext CODE >61:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3BA maintext CODE >62:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3BB maintext CODE >63:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3CD maintext CODE >65:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3CF maintext CODE >68:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3E1 maintext CODE >70:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3E3 maintext CODE >73:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3F5 maintext CODE >75:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3F7 maintext CODE >78:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3F7 maintext CODE >80:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3F8 maintext CODE >81:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3F9 maintext CODE >82:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
-3FA maintext CODE >83:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3FD cinit CODE >388:C:\Users\Al\AppData\Local\Temp\sn1sx.s
+3FD cinit CODE >391:C:\Users\Al\AppData\Local\Temp\sn1sx.s
+3FD cinit CODE >397:C:\Users\Al\AppData\Local\Temp\sn1sx.s
+3FD cinit CODE >399:C:\Users\Al\AppData\Local\Temp\sn1sx.s
+3FE cinit CODE >400:C:\Users\Al\AppData\Local\Temp\sn1sx.s
+38E text2 CODE >44:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+38E text2 CODE >49:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+398 text2 CODE >51:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+39A text2 CODE >53:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+39B text2 CODE >54:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+3A2 text2 CODE >53:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+3A7 text2 CODE >55:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+3AD text2 CODE >56:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+381 text1 CODE >23:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+381 text1 CODE >27:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+384 text1 CODE >31:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+386 text1 CODE >32:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+389 text1 CODE >33:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+38B text1 CODE >34:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+38D text1 CODE >39:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\user.c
+3AE maintext CODE >40:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3AE maintext CODE >46:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3AF maintext CODE >47:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3B1 maintext CODE >48:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3B2 maintext CODE >50:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3B3 maintext CODE >51:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3B4 maintext CODE >53:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3C1 maintext CODE >54:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3C3 maintext CODE >56:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3C3 maintext CODE >64:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3C9 maintext CODE >76:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3DB maintext CODE >78:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3DC maintext CODE >79:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3E3 maintext CODE >80:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3E4 maintext CODE >81:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3F6 maintext CODE >83:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3F8 maintext CODE >86:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3F8 maintext CODE >88:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3F9 maintext CODE >90:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
+3FA maintext CODE >91:C:\Users\Al\Documents\MyProjects\bluetoot-aptx-audio\bluetoot-aptx-audio.X\main.c
 # %SYMTAB Section
 # An enumeration of all symbols in the program.
 # The beginning of the section is indicated by %SYMTAB.
@@ -112,20 +113,20 @@ __Hspace_3 0 0 ABS 0 - -
 __Hspace_4 400F 0 ABS 0 - -
 __Heeprom_data 0 0 EEDATA 3 eeprom_data -
 __Hstrings 7FE 0 ABS 0 strings -
-___sp 0 0 STACK 2 stack C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-_main 744 0 CODE 0 maintext dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+___sp 0 0 STACK 2 stack C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+_main 75C 0 CODE 0 maintext dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 btemp 5E 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-start 0 0 CODE 0 init C:\Users\Al\AppData\Local\Temp\sj3oxb.o
+start 0 0 CODE 0 init C:\Users\Al\AppData\Local\Temp\sn1sxb.o
 __size_of_main 0 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Hpowerup 0 0 CODE 0 powerup -
-main@ADC_value 25 0 BANK0 1 cstackBANK0 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-intlevel0 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-intlevel1 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-intlevel2 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-intlevel3 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-intlevel4 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-intlevel5 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-_InitApp 6EA 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+main@ADC_value 27 0 BANK0 1 cstackBANK0 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+intlevel0 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+intlevel1 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+intlevel2 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+intlevel3 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+intlevel4 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+intlevel5 0 0 ENTRY 0 functab C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+_InitApp 702 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 wtemp0 5E 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Hfunctab 0 0 ENTRY 0 functab -
 __Hclrtext 7FE 0 ABS 0 clrtext -
@@ -133,14 +134,14 @@ _ADCON0 1F 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.product
 _ADRESH 1E 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 _ADRESL 9E 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Lmaintext 7FE 0 ABS 0 maintext -
-___stackhi 0 0 ABS 0 - C:\Users\Al\AppData\Local\Temp\sj3oxb.o
-___stacklo 0 0 ABS 0 - C:\Users\Al\AppData\Local\Temp\sj3oxb.o
+___stackhi 0 0 ABS 0 - C:\Users\Al\AppData\Local\Temp\sn1sxb.o
+___stacklo 0 0 ABS 0 - C:\Users\Al\AppData\Local\Temp\sn1sxb.o
 start_initialization 7FA 0 CODE 0 cinit dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-__end_of_GetADCValue 744 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+__end_of_GetADCValue 75C 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 _GO_nDONE F9 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __pcstackBANK0 20 0 BANK0 1 cstackBANK0 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 _TRISIO 85 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-___int_sp 0 0 STACK 2 stack C:\Users\Al\AppData\Local\Temp\sj3oxb.o
+___int_sp 0 0 STACK 2 stack C:\Users\Al\AppData\Local\Temp\sn1sxb.o
 __Hbank0 7FE 0 ABS 0 bank0 -
 __Hbank1 7FE 0 BANK1 1 bank1 -
 __Hcinit 7FE 0 CODE 0 cinit -
@@ -171,19 +172,19 @@ _GP2 2A 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production
 _GP4 2C 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 _GP5 2D 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __S0 3FF 0 ABS 0 - -
-__S1 27 0 ABS 0 - -
+__S1 29 0 ABS 0 - -
 __S2 0 0 ABS 0 - -
 __S3 0 0 ABS 0 - -
 __Hosccal 7FE 0 CODE 0 osccal -
 __Lintentry 0 0 CODE 0 intentry -
 ?_GetADCValue 20 0 BANK0 1 cstackBANK0 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-reset_vec 0 0 CODE 0 reset_vec C:\Users\Al\AppData\Local\Temp\sj3oxb.o
+reset_vec 0 0 CODE 0 reset_vec C:\Users\Al\AppData\Local\Temp\sn1sxb.o
 __size_of_InitApp 0 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __size_of_GetADCValue 0 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-__pmaintext 744 0 CODE 0 maintext dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+__pmaintext 75C 0 CODE 0 maintext dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Lcommon 7FE 0 ABS 0 common -
 __Lconfig 0 0 CONFIG 4 config -
-___osccal_val 7FE 0 CODE 0 osccal C:\Users\Al\AppData\Local\Temp\sj3oxb.o
+___osccal_val 7FE 0 CODE 0 osccal C:\Users\Al\AppData\Local\Temp\sn1sxb.o
 __Lspace_0 0 0 ABS 0 - -
 __Lspace_1 0 0 ABS 0 - -
 __Lspace_2 0 0 ABS 0 - -
@@ -197,9 +198,9 @@ __Hintentry 0 0 CODE 0 intentry -
 __Losccal 7FE 0 CODE 0 osccal -
 __Lstrings 7FE 0 ABS 0 strings -
 __Hreset_vec 0 0 CODE 0 reset_vec -
-__ptext1 6EA 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-__ptext2 704 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
-__end_of_InitApp 704 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+__ptext1 702 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+__ptext2 71C 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+__end_of_InitApp 71C 0 CODE 0 text1 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Lpowerup 0 0 CODE 0 powerup -
 __Leeprom_data 0 0 EEDATA 3 eeprom_data -
 __Lreset_vec 0 0 CODE 0 reset_vec -
@@ -214,7 +215,7 @@ _CMCON 19 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.producti
 _VRCON 99 0 ABS 0 - dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __Hram 7FE 0 ABS 0 ram -
 __Lram 7FE 0 ABS 0 ram -
-_GetADCValue 704 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
+_GetADCValue 71C 0 CODE 0 text2 dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 __initialization 7FA 0 CODE 0 cinit dist/XC8_PIC12F675/production\bluetoot-aptx-audio.X.production.o
 # %SPLITSTAB Section
 # This section enumerates all the psect splits performed by the assembler.
@@ -242,10 +243,10 @@ __initialization 7FA 0 CODE 0 cinit dist/XC8_PIC12F675/production\bluetoot-aptx-
 # All other numeric quantities are in decimal.
 %SEGMENTS
 cinit 0 3FD 7FA 2 2
-text1 0 375 6EA D 2
-text2 0 382 704 20 2
-maintext 0 3A2 744 5B 2
-cstackBANK0 1 20 20 7 1
+text1 0 381 702 D 2
+text2 0 38E 71C 20 2
+maintext 0 3AE 75C 4F 2
+cstackBANK0 1 20 20 9 1
 reset_vec 0 0 0 1 2
 # %NOTES Section
 # This section contains data of all the note-psects.  The beginning of the section

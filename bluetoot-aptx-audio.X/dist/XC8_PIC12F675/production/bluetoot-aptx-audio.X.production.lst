@@ -1,7 +1,7 @@
 
 
 Microchip MPLAB XC8 Assembler V2.30 build 20200825195618 
-                                                                                               Wed Dec 23 00:29:29 2020
+                                                                                               Sat Dec 26 17:37:44 2020
 
 Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1 
      1                           	processor	12F675
@@ -190,8 +190,8 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    176  0019                     _CMCON	set	25
    177  001F                     _ADCON0	set	31
    178  00F9                     _GO_nDONE	set	249
-   179  002D                     _GP5	set	45
-   180  002C                     _GP4	set	44
+   179  002C                     _GP4	set	44
+   180  002D                     _GP5	set	45
    181  0029                     _GP1	set	41
    182  002A                     _GP2	set	42
    183  009E                     _ADRESL	set	158
@@ -209,7 +209,7 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    195                           
    196  03FD                     __end_of__initialization:
    197  03FD  0183               	clrf	3
-   198  03FE  2BA2               	ljmp	_main	;jump to C main() function
+   198  03FE  2BAE               	ljmp	_main	;jump to C main() function
    199                           
    200                           	psect	cstackCOMMON
    201  0000                     __pcstackCOMMON:
@@ -236,16 +236,16 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    222  0024                     ??_main:
    223                           
    224                           ; 1 bytes @ 0x4
-   225  0024                     	ds	1
-   226  0025                     main@ADC_value:
+   225  0024                     	ds	3
+   226  0027                     main@ADC_value:
    227                           
-   228                           ; 2 bytes @ 0x5
-   229  0025                     	ds	2
+   228                           ; 2 bytes @ 0x7
+   229  0027                     	ds	2
    230                           
    231                           	psect	maintext
-   232  03A2                     __pmaintext:	
+   232  03AE                     __pmaintext:	
    233 ;;
-   234 ;;Main: autosize = 0, tempsize = 1, incstack = 0, save=0
+   234 ;;Main: autosize = 0, tempsize = 3, incstack = 0, save=0
    235 ;;
    236 ;; *************** function _main *****************
    237 ;; Defined at:
@@ -253,7 +253,7 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    239 ;; Parameters:    Size  Location     Type
    240 ;;		None
    241 ;; Auto vars:     Size  Location     Type
-   242 ;;  ADC_value       2    5[BANK0 ] unsigned int 
+   242 ;;  ADC_value       2    7[BANK0 ] unsigned int 
    243 ;; Return value:  Size  Location     Type
    244 ;;                  1    wreg      void 
    245 ;; Registers used:
@@ -265,9 +265,9 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    251 ;; Data sizes:     COMMON   BANK0
    252 ;;      Params:         0       0
    253 ;;      Locals:         0       2
-   254 ;;      Temps:          0       1
-   255 ;;      Totals:         0       3
-   256 ;;Total ram usage:        3 bytes
+   254 ;;      Temps:          0       3
+   255 ;;      Totals:         0       5
+   256 ;;Total ram usage:        5 bytes
    257 ;; Hardware stack levels required when called:    1
    258 ;; This function calls:
    259 ;;		_GetADCValue
@@ -279,342 +279,332 @@ Microchip MPLAB XC8 C Compiler v2.30 (Free license) build 20200825195618 Og1
    265                           
    266                           
    267                           ;psect for function _main
-   268  03A2                     _main:
-   269  03A2                     l722:	
+   268  03AE                     _main:
+   269  03AE                     l716:	
    270                           ;incstack = 0
    271                           ; Regs used in _main: [wreg+status,2+status,0+pclath+cstack]
    272                           
    273                           
    274                           ;main.c: 46:     InitApp();
-   275  03A2  2375               	fcall	_InitApp
-   276  03A3                     l724:
-   277  03A3                     l726:
-   278                           
-   279                           ;main.c: 52:     {;main.c: 56:     ADC_value = GetADCValue();
-   280  03A3  2382               	fcall	_GetADCValue
-   281  03A4  1283               	bcf	3,5	;RP0=0, select bank0
-   282  03A5  0821               	movf	?_GetADCValue+1,w
-   283  03A6  00A6               	movwf	main@ADC_value+1
-   284  03A7  0820               	movf	?_GetADCValue,w
-   285  03A8  00A5               	movwf	main@ADC_value
-   286  03A9                     l728:
-   287                           
-   288                           ;main.c: 58:         if (ADC_value < 10)
-   289  03A9  3000               	movlw	0
-   290  03AA  0226               	subwf	main@ADC_value+1,w
-   291  03AB  300A               	movlw	10
-   292  03AC  1903               	skipnz
-   293  03AD  0225               	subwf	main@ADC_value,w
-   294  03AE  1803               	skipnc
-   295  03AF  2BB1               	goto	u101
-   296  03B0  2BB2               	goto	u100
-   297  03B1                     u101:
-   298  03B1  2BBB               	goto	l734
-   299  03B2                     u100:
-   300  03B2                     l730:
-   301                           
-   302                           ;main.c: 59:             {;main.c: 60:             GP2 = 0;
-   303  03B2  1105               	bcf	5,2	;volatile
-   304  03B3                     l732:
-   305                           
-   306                           ;main.c: 61:             _delay((unsigned long)((1)*(4000000/4000.0)));
-   307  03B3  30C7               	movlw	199
-   308  03B4  00A4               	movwf	??_main
-   309  03B5                     u177:
-   310  03B5  2BB6               	nop2
-   311  03B6  0BA4               	decfsz	??_main,f
-   312  03B7  2BB5               	goto	u177
-   313  03B8  2BB9               	nop2
-   314  03B9  2BBA               	nop2
-   315                           
-   316                           ;main.c: 62:             }
-   317  03BA  2BA3               	goto	l726
-   318  03BB                     l734:
-   319  03BB  3000               	movlw	0
-   320  03BC  0226               	subwf	main@ADC_value+1,w
-   321  03BD  306F               	movlw	111
-   322  03BE  1903               	skipnz
-   323  03BF  0225               	subwf	main@ADC_value,w
-   324  03C0  1C03               	skipc
-   325  03C1  2BC3               	goto	u111
-   326  03C2  2BC4               	goto	u110
-   327  03C3                     u111:
-   328  03C3  2BCF               	goto	l742
-   329  03C4                     u110:
-   330  03C4                     l736:
-   331  03C4  3000               	movlw	0
-   332  03C5  0226               	subwf	main@ADC_value+1,w
-   333  03C6  3082               	movlw	130
-   334  03C7  1903               	skipnz
-   335  03C8  0225               	subwf	main@ADC_value,w
-   336  03C9  1803               	skipnc
-   337  03CA  2BCC               	goto	u121
-   338  03CB  2BCD               	goto	u120
-   339  03CC                     u121:
-   340  03CC  2BCF               	goto	l742
-   341  03CD                     u120:
-   342  03CD                     l738:
-   343                           
-   344                           ;main.c: 64:             {;main.c: 65:             GP1 = 0;
-   345  03CD  1085               	bcf	5,1	;volatile
-   346  03CE  2BB3               	goto	l732
-   347  03CF                     l742:
-   348  03CF  3000               	movlw	0
-   349  03D0  0226               	subwf	main@ADC_value+1,w
-   350  03D1  30D3               	movlw	211
-   351  03D2  1903               	skipnz
-   352  03D3  0225               	subwf	main@ADC_value,w
-   353  03D4  1C03               	skipc
-   354  03D5  2BD7               	goto	u131
-   355  03D6  2BD8               	goto	u130
-   356  03D7                     u131:
-   357  03D7  2BE3               	goto	l750
-   358  03D8                     u130:
-   359  03D8                     l744:
-   360  03D8  3000               	movlw	0
-   361  03D9  0226               	subwf	main@ADC_value+1,w
-   362  03DA  30F0               	movlw	240
-   363  03DB  1903               	skipnz
-   364  03DC  0225               	subwf	main@ADC_value,w
-   365  03DD  1803               	skipnc
-   366  03DE  2BE0               	goto	u141
-   367  03DF  2BE1               	goto	u140
-   368  03E0                     u141:
-   369  03E0  2BE3               	goto	l750
-   370  03E1                     u140:
-   371  03E1                     l746:
-   372                           
-   373                           ;main.c: 69:             {;main.c: 70:             GP4 = 0;
-   374  03E1  1205               	bcf	5,4	;volatile
-   375  03E2  2BB3               	goto	l732
-   376  03E3                     l750:
-   377  03E3  3001               	movlw	1
-   378  03E4  0226               	subwf	main@ADC_value+1,w
-   379  03E5  3073               	movlw	115
-   380  03E6  1903               	skipnz
-   381  03E7  0225               	subwf	main@ADC_value,w
-   382  03E8  1C03               	skipc
-   383  03E9  2BEB               	goto	u151
-   384  03EA  2BEC               	goto	u150
-   385  03EB                     u151:
-   386  03EB  2BF7               	goto	l29
-   387  03EC                     u150:
-   388  03EC                     l752:
-   389  03EC  3001               	movlw	1
-   390  03ED  0226               	subwf	main@ADC_value+1,w
-   391  03EE  3090               	movlw	144
-   392  03EF  1903               	skipnz
-   393  03F0  0225               	subwf	main@ADC_value,w
-   394  03F1  1803               	skipnc
-   395  03F2  2BF4               	goto	u161
-   396  03F3  2BF5               	goto	u160
-   397  03F4                     u161:
-   398  03F4  2BF7               	goto	l29
-   399  03F5                     u160:
-   400  03F5                     l754:
+   275  03AE  2381               	fcall	_InitApp
+   276  03AF                     l718:
+   277                           
+   278                           ;main.c: 47:     GP2 = 1;
+   279  03AF  1283               	bcf	3,5	;RP0=0, select bank0
+   280  03B0  1505               	bsf	5,2	;volatile
+   281  03B1                     l720:
+   282                           
+   283                           ;main.c: 48:     GP1 = 1;
+   284  03B1  1485               	bsf	5,1	;volatile
+   285  03B2                     l722:
+   286                           
+   287                           ;main.c: 50:     GP5 = 1;
+   288  03B2  1685               	bsf	5,5	;volatile
+   289  03B3                     l724:
+   290                           
+   291                           ;main.c: 51:     GP4 = 1;
+   292  03B3  1605               	bsf	5,4	;volatile
+   293  03B4                     l726:
+   294                           
+   295                           ;main.c: 53:     _delay((unsigned long)((5000)*(4000000/4000.0)));
+   296  03B4  301A               	movlw	26
+   297  03B5  00A6               	movwf	??_main+2
+   298  03B6  305E               	movlw	94
+   299  03B7  00A5               	movwf	??_main+1
+   300  03B8  306E               	movlw	110
+   301  03B9  00A4               	movwf	??_main
+   302  03BA                     u117:
+   303  03BA  0BA4               	decfsz	??_main,f
+   304  03BB  2BBA               	goto	u117
+   305  03BC  0BA5               	decfsz	??_main+1,f
+   306  03BD  2BBA               	goto	u117
+   307  03BE  0BA6               	decfsz	??_main+2,f
+   308  03BF  2BBA               	goto	u117
+   309  03C0  0000               	nop
+   310  03C1                     l728:
+   311                           
+   312                           ;main.c: 54:     GP1 = 0;
+   313  03C1  1283               	bcf	3,5	;RP0=0, select bank0
+   314  03C2  1085               	bcf	5,1	;volatile
+   315  03C3                     l730:
+   316  03C3                     l732:
+   317                           
+   318                           ;main.c: 60:     {;main.c: 64:     ADC_value = GetADCValue();
+   319  03C3  238E               	fcall	_GetADCValue
+   320  03C4  1283               	bcf	3,5	;RP0=0, select bank0
+   321  03C5  0821               	movf	?_GetADCValue+1,w
+   322  03C6  00A8               	movwf	main@ADC_value+1
+   323  03C7  0820               	movf	?_GetADCValue,w
+   324  03C8  00A7               	movwf	main@ADC_value
+   325  03C9                     l734:
+   326                           
+   327                           ;main.c: 76:           if (ADC_value > 210 && ADC_value < 240)
+   328  03C9  3000               	movlw	0
+   329  03CA  0228               	subwf	main@ADC_value+1,w
+   330  03CB  30D3               	movlw	211
+   331  03CC  1903               	skipnz
+   332  03CD  0227               	subwf	main@ADC_value,w
+   333  03CE  1C03               	skipc
+   334  03CF  2BD1               	goto	u71
+   335  03D0  2BD2               	goto	u70
+   336  03D1                     u71:
+   337  03D1  2BE4               	goto	l742
+   338  03D2                     u70:
+   339  03D2                     l736:
+   340  03D2  3000               	movlw	0
+   341  03D3  0228               	subwf	main@ADC_value+1,w
+   342  03D4  30F0               	movlw	240
+   343  03D5  1903               	skipnz
+   344  03D6  0227               	subwf	main@ADC_value,w
+   345  03D7  1803               	skipnc
+   346  03D8  2BDA               	goto	u81
+   347  03D9  2BDB               	goto	u80
+   348  03DA                     u81:
+   349  03DA  2BE4               	goto	l742
+   350  03DB                     u80:
+   351  03DB                     l738:
+   352                           
+   353                           ;main.c: 77:             {;main.c: 78:             GP5 = 0;
+   354  03DB  1285               	bcf	5,5	;volatile
+   355  03DC                     l740:
+   356                           
+   357                           ;main.c: 79:             _delay((unsigned long)((1)*(4000000/4000.0)));
+   358  03DC  30C7               	movlw	199
+   359  03DD  00A4               	movwf	??_main
+   360  03DE                     u127:
+   361  03DE  2BDF               	nop2
+   362  03DF  0BA4               	decfsz	??_main,f
+   363  03E0  2BDE               	goto	u127
+   364  03E1  2BE2               	nop2
+   365  03E2  2BE3               	nop2
+   366                           
+   367                           ;main.c: 80:             }
+   368  03E3  2BC3               	goto	l732
+   369  03E4                     l742:
+   370  03E4  3001               	movlw	1
+   371  03E5  0228               	subwf	main@ADC_value+1,w
+   372  03E6  3073               	movlw	115
+   373  03E7  1903               	skipnz
+   374  03E8  0227               	subwf	main@ADC_value,w
+   375  03E9  1C03               	skipc
+   376  03EA  2BEC               	goto	u91
+   377  03EB  2BED               	goto	u90
+   378  03EC                     u91:
+   379  03EC  2BF8               	goto	l25
+   380  03ED                     u90:
+   381  03ED                     l744:
+   382  03ED  3001               	movlw	1
+   383  03EE  0228               	subwf	main@ADC_value+1,w
+   384  03EF  3090               	movlw	144
+   385  03F0  1903               	skipnz
+   386  03F1  0227               	subwf	main@ADC_value,w
+   387  03F2  1803               	skipnc
+   388  03F3  2BF5               	goto	u101
+   389  03F4  2BF6               	goto	u100
+   390  03F5                     u101:
+   391  03F5  2BF8               	goto	l25
+   392  03F6                     u100:
+   393  03F6                     l746:
+   394                           
+   395                           ;main.c: 82:             {;main.c: 83:             GP4 = 0;
+   396  03F6  1205               	bcf	5,4	;volatile
+   397  03F7  2BDC               	goto	l740
+   398  03F8                     l25:	
+   399                           ;main.c: 86:    else
+   400                           
    401                           
-   402                           ;main.c: 74:             {;main.c: 75:             GP5 = 0;
-   403  03F5  1285               	bcf	5,5	;volatile
-   404  03F6  2BB3               	goto	l732
-   405  03F7                     l29:	
-   406                           ;main.c: 78:    else
+   402                           ;main.c: 87:    {;main.c: 88:     GP2 = 1;
+   403  03F8  1505               	bsf	5,2	;volatile
+   404                           
+   405                           ;main.c: 90:     GP5 = 1;
+   406  03F9  1685               	bsf	5,5	;volatile
    407                           
-   408                           
-   409                           ;main.c: 79:    {;main.c: 80:     GP2 = 1;
-   410  03F7  1505               	bsf	5,2	;volatile
-   411                           
-   412                           ;main.c: 81:     GP1 = 1;
-   413  03F8  1485               	bsf	5,1	;volatile
-   414                           
-   415                           ;main.c: 82:     GP4 = 1;
-   416  03F9  1605               	bsf	5,4	;volatile
-   417                           
-   418                           ;main.c: 83:     GP5 = 1;
-   419  03FA  1685               	bsf	5,5	;volatile
-   420  03FB  2BB3               	goto	l732
-   421  03FC  2800               	ljmp	start
-   422  03FD                     __end_of_main:
-   423                           
-   424                           	psect	text1
-   425  0375                     __ptext1:	
-   426 ;; *************** function _InitApp *****************
-   427 ;; Defined at:
-   428 ;;		line 23 in file "user.c"
-   429 ;; Parameters:    Size  Location     Type
-   430 ;;		None
-   431 ;; Auto vars:     Size  Location     Type
-   432 ;;		None
-   433 ;; Return value:  Size  Location     Type
-   434 ;;                  1    wreg      void 
-   435 ;; Registers used:
-   436 ;;		wreg, status,2
-   437 ;; Tracked objects:
-   438 ;;		On entry : 0/0
-   439 ;;		On exit  : 0/0
-   440 ;;		Unchanged: 0/0
-   441 ;; Data sizes:     COMMON   BANK0
-   442 ;;      Params:         0       0
-   443 ;;      Locals:         0       0
-   444 ;;      Temps:          0       0
-   445 ;;      Totals:         0       0
-   446 ;;Total ram usage:        0 bytes
-   447 ;; Hardware stack levels used:    1
-   448 ;; This function calls:
-   449 ;;		Nothing
-   450 ;; This function is called by:
-   451 ;;		_main
-   452 ;; This function uses a non-reentrant model
-   453 ;;
-   454                           
-   455                           
-   456                           ;psect for function _InitApp
-   457  0375                     _InitApp:
-   458  0375                     l706:	
-   459                           ;incstack = 0
-   460                           ; Regs used in _InitApp: [wreg+status,2]
+   408                           ;main.c: 91:     GP4 = 1;
+   409  03FA  1605               	bsf	5,4	;volatile
+   410  03FB  2BDC               	goto	l740
+   411  03FC  2800               	ljmp	start
+   412  03FD                     __end_of_main:
+   413                           
+   414                           	psect	text1
+   415  0381                     __ptext1:	
+   416 ;; *************** function _InitApp *****************
+   417 ;; Defined at:
+   418 ;;		line 23 in file "user.c"
+   419 ;; Parameters:    Size  Location     Type
+   420 ;;		None
+   421 ;; Auto vars:     Size  Location     Type
+   422 ;;		None
+   423 ;; Return value:  Size  Location     Type
+   424 ;;                  1    wreg      void 
+   425 ;; Registers used:
+   426 ;;		wreg, status,2
+   427 ;; Tracked objects:
+   428 ;;		On entry : 0/0
+   429 ;;		On exit  : 0/0
+   430 ;;		Unchanged: 0/0
+   431 ;; Data sizes:     COMMON   BANK0
+   432 ;;      Params:         0       0
+   433 ;;      Locals:         0       0
+   434 ;;      Temps:          0       0
+   435 ;;      Totals:         0       0
+   436 ;;Total ram usage:        0 bytes
+   437 ;; Hardware stack levels used:    1
+   438 ;; This function calls:
+   439 ;;		Nothing
+   440 ;; This function is called by:
+   441 ;;		_main
+   442 ;; This function uses a non-reentrant model
+   443 ;;
+   444                           
+   445                           
+   446                           ;psect for function _InitApp
+   447  0381                     _InitApp:
+   448  0381                     l700:	
+   449                           ;incstack = 0
+   450                           ; Regs used in _InitApp: [wreg+status,2]
+   451                           
+   452                           
+   453                           ;user.c: 27:     TRISIO = 0b00001001;
+   454  0381  3009               	movlw	9
+   455  0382  1683               	bsf	3,5	;RP0=1, select bank1
+   456  0383  0085               	movwf	5	;volatile
+   457                           
+   458                           ;user.c: 31:     ANSEL = 0b00010001;
+   459  0384  3011               	movlw	17
+   460  0385  009F               	movwf	31	;volatile
    461                           
-   462                           
-   463                           ;user.c: 27:     TRISIO = 0b00001001;
-   464  0375  3009               	movlw	9
-   465  0376  1683               	bsf	3,5	;RP0=1, select bank1
-   466  0377  0085               	movwf	5	;volatile
-   467                           
-   468                           ;user.c: 31:     ANSEL = 0b00010001;
-   469  0378  3011               	movlw	17
-   470  0379  009F               	movwf	31	;volatile
+   462                           ;user.c: 32:     ADCON0 = 0b10000001;
+   463  0386  3081               	movlw	129
+   464  0387  1283               	bcf	3,5	;RP0=0, select bank0
+   465  0388  009F               	movwf	31	;volatile
+   466                           
+   467                           ;user.c: 33:     CMCON = 0x07;
+   468  0389  3007               	movlw	7
+   469  038A  0099               	movwf	25	;volatile
+   470  038B                     l702:
    471                           
-   472                           ;user.c: 32:     ADCON0 = 0b10000001;
-   473  037A  3081               	movlw	129
-   474  037B  1283               	bcf	3,5	;RP0=0, select bank0
-   475  037C  009F               	movwf	31	;volatile
-   476                           
-   477                           ;user.c: 33:     CMCON = 0x07;
-   478  037D  3007               	movlw	7
-   479  037E  0099               	movwf	25	;volatile
-   480  037F                     l708:
-   481                           
-   482                           ;user.c: 34:     VRCON = 0x00;
-   483  037F  1683               	bsf	3,5	;RP0=1, select bank1
-   484  0380  0199               	clrf	25	;volatile
-   485  0381                     l54:
-   486  0381  0008               	return
-   487  0382                     __end_of_InitApp:
-   488                           
-   489                           	psect	text2
-   490  0382                     __ptext2:	
-   491 ;; *************** function _GetADCValue *****************
-   492 ;; Defined at:
-   493 ;;		line 44 in file "user.c"
-   494 ;; Parameters:    Size  Location     Type
-   495 ;;		None
-   496 ;; Auto vars:     Size  Location     Type
-   497 ;;		None
-   498 ;; Return value:  Size  Location     Type
-   499 ;;                  2    0[BANK0 ] unsigned int 
-   500 ;; Registers used:
-   501 ;;		wreg
-   502 ;; Tracked objects:
-   503 ;;		On entry : 0/0
-   504 ;;		On exit  : 0/0
-   505 ;;		Unchanged: 0/0
-   506 ;; Data sizes:     COMMON   BANK0
-   507 ;;      Params:         0       2
-   508 ;;      Locals:         0       0
-   509 ;;      Temps:          0       2
-   510 ;;      Totals:         0       4
-   511 ;;Total ram usage:        4 bytes
-   512 ;; Hardware stack levels used:    1
-   513 ;; This function calls:
-   514 ;;		Nothing
-   515 ;; This function is called by:
-   516 ;;		_main
-   517 ;; This function uses a non-reentrant model
-   518 ;;
-   519                           
-   520                           
-   521                           ;psect for function _GetADCValue
-   522  0382                     _GetADCValue:
-   523  0382                     l710:	
-   524                           ;incstack = 0
-   525                           ; Regs used in _GetADCValue: [wreg]
-   526                           
-   527                           
-   528                           ;user.c: 49:     _delay((unsigned long)((10)*(4000000/4000.0)));
-   529  0382  300D               	movlw	13
-   530  0383  1283               	bcf	3,5	;RP0=0, select bank0
-   531  0384  00A3               	movwf	??_GetADCValue+1
-   532  0385  30FB               	movlw	251
-   533  0386  00A2               	movwf	??_GetADCValue
-   534  0387                     u187:
-   535  0387  0BA2               	decfsz	??_GetADCValue,f
-   536  0388  2B87               	goto	u187
-   537  0389  0BA3               	decfsz	??_GetADCValue+1,f
-   538  038A  2B87               	goto	u187
-   539  038B  2B8C               	nop2
-   540  038C                     l712:
-   541                           
-   542                           ;user.c: 51:  GO_nDONE = 1;
-   543  038C  1283               	bcf	3,5	;RP0=0, select bank0
-   544  038D  149F               	bsf	31,1	;volatile
-   545                           
-   546                           ;user.c: 53:  while(GO_nDONE)
-   547  038E  2B96               	goto	l716
-   548  038F                     l714:
-   549                           
-   550                           ;user.c: 54:     _delay((unsigned long)((1)*(4000000/4000.0)));
-   551  038F  30C7               	movlw	199
-   552  0390  00A2               	movwf	??_GetADCValue
-   553  0391                     u197:
-   554  0391  2B92               	nop2
-   555  0392  0BA2               	decfsz	??_GetADCValue,f
-   556  0393  2B91               	goto	u197
-   557  0394  2B95               	nop2
-   558  0395  2B96               	nop2
-   559  0396                     l716:
+   472                           ;user.c: 34:     VRCON = 0x00;
+   473  038B  1683               	bsf	3,5	;RP0=1, select bank1
+   474  038C  0199               	clrf	25	;volatile
+   475  038D                     l50:
+   476  038D  0008               	return
+   477  038E                     __end_of_InitApp:
+   478                           
+   479                           	psect	text2
+   480  038E                     __ptext2:	
+   481 ;; *************** function _GetADCValue *****************
+   482 ;; Defined at:
+   483 ;;		line 44 in file "user.c"
+   484 ;; Parameters:    Size  Location     Type
+   485 ;;		None
+   486 ;; Auto vars:     Size  Location     Type
+   487 ;;		None
+   488 ;; Return value:  Size  Location     Type
+   489 ;;                  2    0[BANK0 ] unsigned int 
+   490 ;; Registers used:
+   491 ;;		wreg
+   492 ;; Tracked objects:
+   493 ;;		On entry : 0/0
+   494 ;;		On exit  : 0/0
+   495 ;;		Unchanged: 0/0
+   496 ;; Data sizes:     COMMON   BANK0
+   497 ;;      Params:         0       2
+   498 ;;      Locals:         0       0
+   499 ;;      Temps:          0       2
+   500 ;;      Totals:         0       4
+   501 ;;Total ram usage:        4 bytes
+   502 ;; Hardware stack levels used:    1
+   503 ;; This function calls:
+   504 ;;		Nothing
+   505 ;; This function is called by:
+   506 ;;		_main
+   507 ;; This function uses a non-reentrant model
+   508 ;;
+   509                           
+   510                           
+   511                           ;psect for function _GetADCValue
+   512  038E                     _GetADCValue:
+   513  038E                     l704:	
+   514                           ;incstack = 0
+   515                           ; Regs used in _GetADCValue: [wreg]
+   516                           
+   517                           
+   518                           ;user.c: 49:     _delay((unsigned long)((10)*(4000000/4000.0)));
+   519  038E  300D               	movlw	13
+   520  038F  1283               	bcf	3,5	;RP0=0, select bank0
+   521  0390  00A3               	movwf	??_GetADCValue+1
+   522  0391  30FB               	movlw	251
+   523  0392  00A2               	movwf	??_GetADCValue
+   524  0393                     u137:
+   525  0393  0BA2               	decfsz	??_GetADCValue,f
+   526  0394  2B93               	goto	u137
+   527  0395  0BA3               	decfsz	??_GetADCValue+1,f
+   528  0396  2B93               	goto	u137
+   529  0397  2B98               	nop2
+   530  0398                     l706:
+   531                           
+   532                           ;user.c: 51:  GO_nDONE = 1;
+   533  0398  1283               	bcf	3,5	;RP0=0, select bank0
+   534  0399  149F               	bsf	31,1	;volatile
+   535                           
+   536                           ;user.c: 53:  while(GO_nDONE)
+   537  039A  2BA2               	goto	l710
+   538  039B                     l708:
+   539                           
+   540                           ;user.c: 54:     _delay((unsigned long)((1)*(4000000/4000.0)));
+   541  039B  30C7               	movlw	199
+   542  039C  00A2               	movwf	??_GetADCValue
+   543  039D                     u147:
+   544  039D  2B9E               	nop2
+   545  039E  0BA2               	decfsz	??_GetADCValue,f
+   546  039F  2B9D               	goto	u147
+   547  03A0  2BA1               	nop2
+   548  03A1  2BA2               	nop2
+   549  03A2                     l710:
+   550                           
+   551                           ;user.c: 53:  while(GO_nDONE)
+   552  03A2  1283               	bcf	3,5	;RP0=0, select bank0
+   553  03A3  189F               	btfsc	31,1	;volatile
+   554  03A4  2BA6               	goto	u61
+   555  03A5  2BA7               	goto	u60
+   556  03A6                     u61:
+   557  03A6  2B9B               	goto	l708
+   558  03A7                     u60:
+   559  03A7                     l712:
    560                           
-   561                           ;user.c: 53:  while(GO_nDONE)
-   562  0396  1283               	bcf	3,5	;RP0=0, select bank0
-   563  0397  189F               	btfsc	31,1	;volatile
-   564  0398  2B9A               	goto	u91
-   565  0399  2B9B               	goto	u90
-   566  039A                     u91:
-   567  039A  2B8F               	goto	l714
-   568  039B                     u90:
-   569  039B                     l718:
-   570                           
-   571                           ;user.c: 55:     return ((ADRESH<<8)+ADRESL);
-   572  039B  081E               	movf	30,w	;volatile
-   573  039C  00A1               	movwf	?_GetADCValue+1
-   574  039D  1683               	bsf	3,5	;RP0=1, select bank1
-   575  039E  081E               	movf	30,w	;volatile
-   576  039F  1283               	bcf	3,5	;RP0=0, select bank0
-   577  03A0  00A0               	movwf	?_GetADCValue
-   578  03A1                     l60:
-   579  03A1  0008               	return
-   580  03A2                     __end_of_GetADCValue:
-   581  005E                     btemp	set	94	;btemp
-   582  005E                     wtemp0	set	94
-   583                           
-   584                           	psect	config
-   585                           
-   586                           ;Config register CONFIG @ 0x2007
-   587                           ;	Oscillator Selection bits
-   588                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
+   561                           ;user.c: 55:     return ((ADRESH<<8)+ADRESL);
+   562  03A7  081E               	movf	30,w	;volatile
+   563  03A8  00A1               	movwf	?_GetADCValue+1
+   564  03A9  1683               	bsf	3,5	;RP0=1, select bank1
+   565  03AA  081E               	movf	30,w	;volatile
+   566  03AB  1283               	bcf	3,5	;RP0=0, select bank0
+   567  03AC  00A0               	movwf	?_GetADCValue
+   568  03AD                     l56:
+   569  03AD  0008               	return
+   570  03AE                     __end_of_GetADCValue:
+   571  005E                     btemp	set	94	;btemp
+   572  005E                     wtemp0	set	94
+   573                           
+   574                           	psect	config
+   575                           
+   576                           ;Config register CONFIG @ 0x2007
+   577                           ;	Oscillator Selection bits
+   578                           ;	FOSC = INTRCIO, INTOSC oscillator: I/O function on GP4/OSC2/CLKOUT pin, I/O function o
       +                          n GP5/OSC1/CLKIN
-   589                           ;	Watchdog Timer Enable bit
-   590                           ;	WDTE = OFF, WDT disabled
-   591                           ;	Power-Up Timer Enable bit
-   592                           ;	PWRTE = OFF, PWRT disabled
-   593                           ;	GP3/MCLR pin function select
-   594                           ;	MCLRE = OFF, GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD
-   595                           ;	Brown-out Detect Enable bit
-   596                           ;	BOREN = ON, BOD enabled
-   597                           ;	Code Protection bit
-   598                           ;	CP = OFF, Program Memory code protection is disabled
-   599                           ;	Data Code Protection bit
-   600                           ;	CPD = OFF, Data memory code protection is disabled
-   601  2007                     	org	8199
-   602  2007  31D4               	dw	12756
+   579                           ;	Watchdog Timer Enable bit
+   580                           ;	WDTE = OFF, WDT disabled
+   581                           ;	Power-Up Timer Enable bit
+   582                           ;	PWRTE = OFF, PWRT disabled
+   583                           ;	GP3/MCLR pin function select
+   584                           ;	MCLRE = OFF, GP3/MCLR pin function is digital I/O, MCLR internally tied to VDD
+   585                           ;	Brown-out Detect Enable bit
+   586                           ;	BOREN = ON, BOD enabled
+   587                           ;	Code Protection bit
+   588                           ;	CP = OFF, Program Memory code protection is disabled
+   589                           ;	Data Code Protection bit
+   590                           ;	CPD = OFF, Data memory code protection is disabled
+   591  2007                     	org	8199
+   592  2007  31D4               	dw	12756
 
 Data Sizes:
     Strings     0
@@ -627,7 +617,7 @@ Data Sizes:
 Auto Spaces:
     Space          Size  Autos    Used
     COMMON            0      0       0
-    BANK0            62      7       7
+    BANK0            62      9       9
 
 Pointer List with Targets:
 
@@ -646,8 +636,8 @@ Call Graph Tables:
  ---------------------------------------------------------------------------------
  (Depth) Function   	        Calls       Base Space   Used Autos Params    Refs
  ---------------------------------------------------------------------------------
- (0) _main                                                 3     3      0     156
-                                              4 BANK0      3     3      0
+ (0) _main                                                 5     5      0      90
+                                              4 BANK0      5     5      0
                         _GetADCValue
                             _InitApp
  ---------------------------------------------------------------------------------
@@ -678,40 +668,39 @@ BITSFR1              0      0       0       2        0.0%
 SFR1                 0      0       0       2        0.0%
 STACK                0      0       0       2        0.0%
 BITBANK0            3E      0       0       3        0.0%
-BANK0               3E      7       7       4       11.3%
+BANK0               3E      9       9       4       14.5%
 ABS                  0      0       0       5        0.0%
 DATA                 0      0       0       6        0.0%
 
 
 Microchip Technology PIC Macro Assembler V2.30 build 20200825195618 
-Symbol Table                                                                                   Wed Dec 23 00:29:29 2020
+Symbol Table                                                                                   Sat Dec 26 17:37:44 2020
 
-                     l60 03A1                       l29 03F7                       l54 0381  
-                     u90 039B                       u91 039A                      l710 0382  
-                    l712 038C                      l714 038F                      l706 0375  
-                    l730 03B2                      l722 03A2                      l716 0396  
-                    l708 037F                      l732 03B3                      l724 03A3  
-                    l718 039B                      l750 03E3                      l742 03CF  
-                    l734 03BB                      l726 03A3                      l752 03EC  
-                    l744 03D8                      l736 03C4                      l728 03A9  
-                    l754 03F5                      l746 03E1                      l738 03CD  
-                    _GP1 0029                      _GP2 002A                      _GP4 002C  
-                    _GP5 002D                      u100 03B2                      u101 03B1  
-                    u110 03C4                      u111 03C3                      u120 03CD  
-                    u121 03CC                      u130 03D8                      u131 03D7  
-                    u140 03E1                      u141 03E0                      u150 03EC  
-                    u151 03EB                      u160 03F5                      u161 03F4  
-                    u177 03B5                      u187 0387                      u197 0391  
-                   _main 03A2                     btemp 005E              _GetADCValue 0382  
-                   start 0000          __end_of_InitApp 0382                    ?_main 0020  
-                  _CMCON 0019                    _ANSEL 009F                    _VRCON 0099  
-                  status 0003                    wtemp0 005E          __initialization 03FD  
-           __end_of_main 03FD                   ??_main 0024                   _ADCON0 001F  
-                 _ADRESH 001E                   _ADRESL 009E                   _TRISIO 0085  
-              ??_InitApp 0000  __end_of__initialization 03FD           __pcstackCOMMON 0000  
-           ?_GetADCValue 0020               __pmaintext 03A2                  _InitApp 0375  
-                __ptext1 0375                  __ptext2 0382     end_of_initialization 03FD  
-   __size_of_GetADCValue 0020      start_initialization 03FD                ___latbits 0000  
-          __pcstackBANK0 0020                 ?_InitApp 0020                 _GO_nDONE 00F9  
-       __size_of_InitApp 000D            __size_of_main 005B            ??_GetADCValue 0022  
-          main@ADC_value 0025      __end_of_GetADCValue 03A2  
+                     l25 03F8                       l50 038D                       l56 03AD  
+                     u60 03A7                       u61 03A6                       u70 03D2  
+                     u71 03D1                       u80 03DB                       u81 03DA  
+                     u90 03ED                       u91 03EC                      l700 0381  
+                    l710 03A2                      l702 038B                      l712 03A7  
+                    l704 038E                      l720 03B1                      l706 0398  
+                    l730 03C3                      l722 03B2                      l708 039B  
+                    l740 03DC                      l732 03C3                      l724 03B3  
+                    l716 03AE                      l742 03E4                      l734 03C9  
+                    l726 03B4                      l718 03AF                      l744 03ED  
+                    l736 03D2                      l728 03C1                      l746 03F6  
+                    l738 03DB                      _GP1 0029                      _GP2 002A  
+                    _GP4 002C                      _GP5 002D                      u100 03F6  
+                    u101 03F5                      u117 03BA                      u127 03DE  
+                    u137 0393                      u147 039D                     _main 03AE  
+                   btemp 005E              _GetADCValue 038E                     start 0000  
+        __end_of_InitApp 038E                    ?_main 0020                    _CMCON 0019  
+                  _ANSEL 009F                    _VRCON 0099                    status 0003  
+                  wtemp0 005E          __initialization 03FD             __end_of_main 03FD  
+                 ??_main 0024                   _ADCON0 001F                   _ADRESH 001E  
+                 _ADRESL 009E                   _TRISIO 0085                ??_InitApp 0000  
+__end_of__initialization 03FD           __pcstackCOMMON 0000             ?_GetADCValue 0020  
+             __pmaintext 03AE                  _InitApp 0381                  __ptext1 0381  
+                __ptext2 038E     end_of_initialization 03FD     __size_of_GetADCValue 0020  
+    start_initialization 03FD                ___latbits 0000            __pcstackBANK0 0020  
+               ?_InitApp 0020                 _GO_nDONE 00F9         __size_of_InitApp 000D  
+          __size_of_main 004F            ??_GetADCValue 0022            main@ADC_value 0027  
+    __end_of_GetADCValue 03AE  
